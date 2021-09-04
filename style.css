@@ -1,12 +1,12 @@
 body {
     max-width: 50%;
-    margin: 0 10% 0;
+    margin: 20px 10% 0;
 }
 
 h1 { 
     color: #333333; 
-    font-family: 'Bitter', serif; 
-    font-size: 35px; 
+    font-family: serif; 
+    font-size: 30px; 
     font-weight: normal; 
     line-height: 54px; 
     margin: 0 0 54px; 
@@ -14,9 +14,12 @@ h1 {
 
 p { 
     color: #333333; 
-    font-family: 'Georgia', serif; 
+    font-family: serif; 
     font-size: 16px; 
     line-height: 28px;
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
 }
 
 
