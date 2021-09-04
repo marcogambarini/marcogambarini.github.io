@@ -42,7 +42,8 @@ wavefronts (perpendicular to wavevectors), its short edge much smaller
 than the wavelength and its thickness small compared to both other dimensions.
 Such a body, as we shall see, behaves as a wave follower, that is it
 rides the waves while not perturbing them much; this is hard to see from the
-individual diffraction and radiation results.
+individual diffraction and radiation results. Only vertical, or so-called
+heaving, motions will be considered.
 </p>
 
 
@@ -60,8 +61,10 @@ Incident wave
 </figure>
 
 <p>
-Let us now see the effect of diffraction: we solve the problem with the body
-held fixed.
+We now add the effect of diffraction: the problem is solved with the body
+held fixed. From this simulation, we also compute the force on the bottom
+of the body: let's call it \(F_i + F_d\), that is, the force from incident
+and diffracted waves.
 </p>
 
 <figure>
@@ -81,7 +84,9 @@ body, while behind the body the resulting waves travel with smaller amplitude
 and a different phase with respect to the incident waves. This would indicate
 that the body is able to attenuate incident waves very effectively.
 Actually, this would be true if the body was actually fixed, but we still
-have to sum the radiation contribution.
+have to sum the radiation contribution. This is calculated by imposing unit oscillations to the body.
+From this simulation we compute the force on the bottom and call it
+\(f_r\), the radiation force per unit amplitude.
 </p>
 
 <figure>
@@ -94,9 +99,23 @@ Radiated wave
 </figure>
 
 <p>
-This is calculated by imposing unit oscillations to the body. Each time the body
+Each time the body
 moves down, it displaces water, generating a pair of outgoing waves. These waves
-happen to almost cancel diffracted waves: here is the result.
+happen to almost cancel diffracted waves, as we shall see later. Remember that
+radiated waves were computed for a unit oscillation: now we need to compute
+the complex amplitude \(\xi_i\) of the actual oscillation. This is done by
+writing and solving the equation of motion of the body:
+
+$$ (- M \omega^2 + K) \xi = F_i + F_d + F_r $$
+
+We do not know the value of \(F_r\), but we know the value of force per unit
+oscillation amplitude, \(f_r\), and the problem is linear, so we can write
+
+$$ (- M \omega^2 + K + f_r) \xi = F_i + F_d $$
+
+and solve for \(\xi\). As a sidenote, \(F_r\) is typically decomposed into
+added mass and radiation damping contributions, but this is not strictly
+needed to understand what happens.
 </p>
 
 <figure>
@@ -119,5 +138,7 @@ evident, buth much smaller than predicted by the diffraction simulation.
 These simulations were run using
 <a href="https://ancell.in/capytaine/latest/">Capytaine</a>
 by M. Ancellin. The code is available
-<a href="https://github.com/marcogambarini/marcogambarini.github.io/blob/7114a794ae5e70606655d0c6908a0146771d3f0d/code/rao_animation_lines.py">here</a>.
+<a href="https://github.com/marcogambarini/marcogambarini.github.io/blob/7114a794ae5e70606655d0c6908a0146771d3f0d/code/rao_animation_lines.py">here</a>:
+you could modify it to see what happens when the body is not so small
+compared to the wavelength, for example.
 </p>
