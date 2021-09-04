@@ -34,80 +34,9 @@ figspace { margin:0 10% 0;}
 
 <body>
 
-<h1> Diffraction and radiation by a floating body </h1>
+<h1> Index </h1>
 
 
 <p>
-When simulating the effects of floating bodies on waves in a linear setting
-using boundary element methods (BEM), it is customary to represent the
-resulting wave elevation as the sum of incident, diffracted and radiated
-waves. This was difficult for me to visualize: I have put together some
-animations to hopefully make it clearer. <br>
-
-The decomposition of wave elevation is
-$$ \eta = \eta_i + \eta_d + \sum_i^{N_\text{dof}}  \eta_{r, i} \xi_i$$
-where \(\eta_i\) are the incident waves, \(\eta_d\) the diffracted waves,
-\(\eta_{r,i}\) the radiated waves for unit amplitude motion in the direction
-of degree of freedom \(i\) and \(\xi_i\) the amplitude of the body oscillations
-in the \(i\)-th degree of freedom. <br>
-
-We will consider the case of an ideally infinitely long rectangle with its long edge parallel to
-wavefronts (perpendicular to wavevectors), its short edge much smaller
-than the wavelength and its thickness small compared to both other dimensions.
-Such a body, as we shall see, behaves as a wave follower, that is it
-rides the waves while not perturbing them much; this is hard to see from the
-individual diffraction and radiation results.
-</p>
-
-
-<p>
-Let's start with incident waves.
-</p>
-
-<figspace>
-<img src="figures/incident.gif" alt="Loading" title="Diffraction" height="300"/>
-</figspace>
-
-<p>
-Let us now see the effect of diffraction: we solve the problem with the body
-held fixed.
-</p>
-
-<figspace>
-<img src="figures/diffraction.gif" alt="Loading" title="Diffraction" height="300"/>
-</figspace>
-
-<p>
-The blue line indicates incident waves, the orange one diffracted waves,
-and the solid green line is the resulting field. We can see that
-waves are partially reflected, forming almost standing waves in front of the
-body, while behind the body the resulting waves travel with smaller amplitude
-and a different phase with respect to the incident waves. This would indicate
-that the body is able to attenuate incident waves very effectively.
-Actually, this would be true if the body was actually fixed, but we still
-have to sum the radiation contribution.
-</p>
-
-<figspace>
-<img src="figures/radiation.gif" alt="Loading" title="Diffraction" height="300"/>
-</figspace>
-
-<p>
-This is calculated by imposing unit oscillations to the body. Each time the body
-moves down, it displaces water, generating a pair of outgoing waves. These waves
-happen to almost cancel diffracted waves: here is the result.
-</p>
-
-<figspace>
-<img src="figures/full.gif" alt="Loading" title="Diffraction" height="300"/>
-</figspace>
-
-<p>
-In this last figure we can recognize all the single contributions.
-</p>
-
-<p>
-These simulations were run using
-<a href="https://ancell.in/capytaine/latest/">Capytaine</a>
-by M. Ancellin.
+<a href="floating_body.html">Body floating in wave field, visualizations </a>
 </p>
