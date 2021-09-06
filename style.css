@@ -23,13 +23,8 @@ p {
 }
 
 smallp { 
-    color: #333333; 
-    font-family: Bitstream Charter; 
     font-size: 14px; 
-    line-height: 24px;
-    text-align: justify;
-    text-justify: inter-word;
-    hyphens: auto;
+    line-height: 20px;
 }
 
 
