@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Code documentation &mdash; floatcyl 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=2709fde1"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="User guide" href="user.html" />
+    <link rel="prev" title="floatcyl" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            floatcyl
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Code documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-floatcyl.disp_relation.disp_relation">Dispersion relation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#floatcyl.disp_relation.disp_relation.imag_disp_rel"><code class="docutils literal notranslate"><span class="pre">imag_disp_rel()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#floatcyl.disp_relation.disp_relation.real_disp_rel"><code class="docutils literal notranslate"><span class="pre">real_disp_rel()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#isolated-body">Isolated body</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#floatcyl.isolated_body.isolated_body.Cylinder"><code class="docutils literal notranslate"><span class="pre">Cylinder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#floatcyl.isolated_body.isolated_body.Cylinder.body_diffraction_matrix"><code class="docutils literal notranslate"><span class="pre">Cylinder.body_diffraction_matrix()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#floatcyl.isolated_body.isolated_body.Cylinder.body_diffraction_matrix_internal"><code class="docutils literal notranslate"><span class="pre">Cylinder.body_diffraction_matrix_internal()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#floatcyl.isolated_body.isolated_body.Cylinder.compute_diffraction_properties"><code class="docutils literal notranslate"><span class="pre">Cylinder.compute_diffraction_properties()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#floatcyl.isolated_body.isolated_body.Cylinder.compute_radiation_properties"><code class="docutils literal notranslate"><span class="pre">Cylinder.compute_radiation_properties()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#floatcyl.isolated_body.isolated_body.Cylinder.heave_forces_basis"><code class="docutils literal notranslate"><span class="pre">Cylinder.heave_forces_basis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#floatcyl.isolated_body.isolated_body.Cylinder.isolated_body_matrices_diff"><code class="docutils literal notranslate"><span class="pre">Cylinder.isolated_body_matrices_diff()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#floatcyl.isolated_body.isolated_body.Cylinder.isolated_body_matrices_rad"><code class="docutils literal notranslate"><span class="pre">Cylinder.isolated_body_matrices_rad()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#floatcyl.isolated_body.isolated_body.Cylinder.radiated_wave_coeffs"><code class="docutils literal notranslate"><span class="pre">Cylinder.radiated_wave_coeffs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#floatcyl.isolated_body.isolated_body.Cylinder.radiated_wave_coeffs_internal"><code class="docutils literal notranslate"><span class="pre">Cylinder.radiated_wave_coeffs_internal()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#array-interaction">Array interaction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#floatcyl.array_interaction.array_interaction.Array"><code class="docutils literal notranslate"><span class="pre">Array</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#floatcyl.array_interaction.array_interaction.Array.L_derivatives"><code class="docutils literal notranslate"><span class="pre">Array.L_derivatives()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#floatcyl.array_interaction.array_interaction.Array.M_derivatives"><code class="docutils literal notranslate"><span class="pre">Array.M_derivatives()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#floatcyl.array_interaction.array_interaction.Array.M_derivatives_damp"><code class="docutils literal notranslate"><span class="pre">Array.M_derivatives_damp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#floatcyl.array_interaction.array_interaction.Array.T_derivatives"><code class="docutils literal notranslate"><span class="pre">Array.T_derivatives()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#floatcyl.array_interaction.array_interaction.Array.add_body"><code class="docutils literal notranslate"><span class="pre">Array.add_body()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#floatcyl.array_interaction.array_interaction.Array.adjoint_equations"><code class="docutils literal notranslate"><span class="pre">Array.adjoint_equations()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#floatcyl.array_interaction.array_interaction.Array.basis_transformation_matrices"><code class="docutils literal notranslate"><span class="pre">Array.basis_transformation_matrices()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#floatcyl.array_interaction.array_interaction.Array.basis_transformation_matrix"><code class="docutils literal notranslate"><span class="pre">Array.basis_transformation_matrix()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#floatcyl.array_interaction.array_interaction.Array.compute_free_surface"><code class="docutils literal notranslate"><span class="pre">Array.compute_free_surface()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#floatcyl.array_interaction.array_interaction.Array.compute_power"><code class="docutils literal notranslate"><span class="pre">Array.compute_power()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#floatcyl.array_interaction.array_interaction.Array.expose_operators"><code class="docutils literal notranslate"><span class="pre">Array.expose_operators()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#floatcyl.array_interaction.array_interaction.Array.gradientJ"><code class="docutils literal notranslate"><span class="pre">Array.gradientJ()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#floatcyl.array_interaction.array_interaction.Array.gradientJ_dampstiff"><code class="docutils literal notranslate"><span class="pre">Array.gradientJ_dampstiff()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#floatcyl.array_interaction.array_interaction.Array.h_derivatives"><code class="docutils literal notranslate"><span class="pre">Array.h_derivatives()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#floatcyl.array_interaction.array_interaction.Array.incident_basis_fs"><code class="docutils literal notranslate"><span class="pre">Array.incident_basis_fs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#floatcyl.array_interaction.array_interaction.Array.incident_wave_coeffs"><code class="docutils literal notranslate"><span class="pre">Array.incident_wave_coeffs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#floatcyl.array_interaction.array_interaction.Array.jac_imped"><code class="docutils literal notranslate"><span class="pre">Array.jac_imped()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#floatcyl.array_interaction.array_interaction.Array.jac_positions"><code class="docutils literal notranslate"><span class="pre">Array.jac_positions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#floatcyl.array_interaction.array_interaction.Array.scattered_basis_fs"><code class="docutils literal notranslate"><span class="pre">Array.scattered_basis_fs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#floatcyl.array_interaction.array_interaction.Array.solve"><code class="docutils literal notranslate"><span class="pre">Array.solve()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#floatcyl.array_interaction.array_interaction.Array.update_controls"><code class="docutils literal notranslate"><span class="pre">Array.update_controls()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-floatcyl.utils.utils">Utils</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#floatcyl.utils.utils.discrete_PM_spectrum"><code class="docutils literal notranslate"><span class="pre">discrete_PM_spectrum()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#floatcyl.utils.utils.inverse_vector_indices"><code class="docutils literal notranslate"><span class="pre">inverse_vector_indices()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#floatcyl.utils.utils.vector_index"><code class="docutils literal notranslate"><span class="pre">vector_index()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-floatcyl.gradflow.inoutpolygonmesh">Gradient flow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#floatcyl.gradflow.random_pos.random_in_square"><code class="docutils literal notranslate"><span class="pre">random_in_square()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#floatcyl.gradflow.random_pos.random_in_triangle"><code class="docutils literal notranslate"><span class="pre">random_in_triangle()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#floatcyl.gradflow.random_pos.random_in_trunc_triangle"><code class="docutils literal notranslate"><span class="pre">random_in_trunc_triangle()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#floatcyl.gradflow.random_pos.ref_to_physical"><code class="docutils literal notranslate"><span class="pre">ref_to_physical()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#floatcyl.gradflow.rkflow.eeheun"><code class="docutils literal notranslate"><span class="pre">eeheun()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#floatcyl.gradflow.rkflow.euler"><code class="docutils literal notranslate"><span class="pre">euler()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="user.html">User guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="theory.html">Theory guide</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">floatcyl</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Code documentation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/modules.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="code-documentation">
+<h1>Code documentation<a class="headerlink" href="#code-documentation" title="Link to this heading"></a></h1>
+<section id="module-floatcyl.disp_relation.disp_relation">
+<span id="dispersion-relation"></span><h2>Dispersion relation<a class="headerlink" href="#module-floatcyl.disp_relation.disp_relation" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="floatcyl.disp_relation.disp_relation.imag_disp_rel">
+<span class="sig-prename descclassname"><span class="pre">floatcyl.disp_relation.disp_relation.</span></span><span class="sig-name descname"><span class="pre">imag_disp_rel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">omega</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">N</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">9.81</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floatcyl.disp_relation.disp_relation.imag_disp_rel" title="Link to this definition"></a></dt>
+<dd><p>Compute the first N complex wavenumbers for a finite depth gravity wave of frequency omega</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>omega</strong> (<em>float</em>) – angular frequency of the wave (rad/s)</p></li>
+<li><p><strong>depth</strong> (<em>float</em>) – water depth (m)</p></li>
+<li><p><strong>N</strong> (<em>int</em>) – number of wavenumbers to compute</p></li>
+<li><p><strong>g</strong> (<em>float</em>) – gravitational field (m/s^2), default=9.81</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>wavenumber (rad/m)</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array of shape (Nx1)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="floatcyl.disp_relation.disp_relation.real_disp_rel">
+<span class="sig-prename descclassname"><span class="pre">floatcyl.disp_relation.disp_relation.</span></span><span class="sig-name descname"><span class="pre">real_disp_rel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">omega</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">9.81</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floatcyl.disp_relation.disp_relation.real_disp_rel" title="Link to this definition"></a></dt>
+<dd><p>Compute the real wavenumber for a finite depth gravity wave of frequency omega</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>omega</strong> (<em>float</em>) – angular frequency of the wave (rad/s)</p></li>
+<li><p><strong>depth</strong> (<em>float</em>) – water depth (m)</p></li>
+<li><p><strong>g</strong> (<em>float</em>) – gravitational field (m/s^2), default=9.81</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>wavenumber (rad/m)</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="isolated-body">
+<h2>Isolated body<a class="headerlink" href="#isolated-body" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="floatcyl.isolated_body.isolated_body.Cylinder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">floatcyl.isolated_body.isolated_body.</span></span><span class="sig-name descname"><span class="pre">Cylinder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">draft</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0.4]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Nn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Nq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">omega</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">water_density</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">9.81</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">torque_coeff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floatcyl.isolated_body.isolated_body.Cylinder" title="Link to this definition"></a></dt>
+<dd><p>Simple constructor with kwargs.
+The choice of kwargs is just for readability. They are all
+always needed. Actually, some of them (depth, k, omega)
+are attributes of the problem, not of the object. It is
+recommended to assign them to the problem (they would
+be overwritten anyway)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>radius</strong> (<em>float</em>) – radius of the cylinder (default: 1.)</p></li>
+<li><p><strong>draft</strong> (<em>float</em>) – immersed length (default: 0.4)</p></li>
+<li><p><strong>depth</strong> (<em>float</em>) – sea depth (default: 30.)</p></li>
+<li><p><strong>k</strong> (<em>float</em>) – real wavenumber (default: 0.01)</p></li>
+<li><p><strong>kq</strong> (<em>list</em><em> or </em><em>array</em><em> of </em><em>floats</em>) – imaginary wavenumbers (default: [0.4])</p></li>
+<li><p><strong>Nn</strong> (<em>int</em>) – number of progressive (real) modes (default: 5)</p></li>
+<li><p><strong>Nq</strong> (<em>int</em>) – number of evanescent (imaginary) modes (default: 10)</p></li>
+<li><p><strong>omega</strong> (<em>float</em>) – radial frequency of the waves (default: 3)</p></li>
+<li><p><strong>water_density</strong> (<em>float</em>) – water density (default: 1000.)</p></li>
+<li><p><strong>g</strong> (<em>float</em>) – gravitational field (default: 9.81)</p></li>
+<li><p><strong>gamma</strong> (<em>float</em>) – Damping coefficient of the electrical generator or turbine</p></li>
+<li><p><strong>delta</strong> (<em>float</em>) – Stiffness coefficient of the electrical generator</p></li>
+<li><p><strong>torque_coeff</strong> (<em>array</em>) – Polynomial coefficients of the produced power (they multiply
+the powers of velocity amplitude)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="floatcyl.isolated_body.isolated_body.Cylinder.body_diffraction_matrix">
+<span class="sig-name descname"><span class="pre">body_diffraction_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">D</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floatcyl.isolated_body.isolated_body.Cylinder.body_diffraction_matrix" title="Link to this definition"></a></dt>
+<dd><p>Computes the external diffraction matrix B from the results of the
+isolated body analysis stored in array D.
+See Eq. (3.133) in Child 2011.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>D</strong> (<em>3-D array</em>) – single-body scattering results</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>B</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array of shape ((2Nn + 1)(Nm + 1) x (2Nn + 1)(Nm + 1))</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floatcyl.isolated_body.isolated_body.Cylinder.body_diffraction_matrix_internal">
+<span class="sig-name descname"><span class="pre">body_diffraction_matrix_internal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">C</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floatcyl.isolated_body.isolated_body.Cylinder.body_diffraction_matrix_internal" title="Link to this definition"></a></dt>
+<dd><p>Computes the internal diffraction matrix B from the results of the
+isolated body analysis stored in array C.
+See Eq. (3.134) in Child 2011.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>C</strong> (<em>3-D array</em>) – single-body scattering results</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>B</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array of shape ((2Nn + 1)(Nm + 1) x (2Nn + 1)(Nm + 1))</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floatcyl.isolated_body.isolated_body.Cylinder.compute_diffraction_properties">
+<span class="sig-name descname"><span class="pre">compute_diffraction_properties</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#floatcyl.isolated_body.isolated_body.Cylinder.compute_diffraction_properties" title="Link to this definition"></a></dt>
+<dd><p>Computes single body diffraction matrices by calling
+the proper subroutines.
+See Eq. (3.83), (3.84) in Child 2011.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floatcyl.isolated_body.isolated_body.Cylinder.compute_radiation_properties">
+<span class="sig-name descname"><span class="pre">compute_radiation_properties</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#floatcyl.isolated_body.isolated_body.Cylinder.compute_radiation_properties" title="Link to this definition"></a></dt>
+<dd><p>Computes single body radiation matrices by calling
+the proper subroutines.
+See Eq. (3.106), (3.107), (3.150), (3.151) in Child 2011.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floatcyl.isolated_body.isolated_body.Cylinder.heave_forces_basis">
+<span class="sig-name descname"><span class="pre">heave_forces_basis</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#floatcyl.isolated_body.isolated_body.Cylinder.heave_forces_basis" title="Link to this definition"></a></dt>
+<dd><p>Computes the integrals of the internal problem basis function on the
+lower surface of the cylinder. Heave forces are combinations of these terms.
+See Eq. (3.149) in Child 2011.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Y</strong></p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>array of shape ((2Nn + 1)(Nm + 1) x 1)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floatcyl.isolated_body.isolated_body.Cylinder.isolated_body_matrices_diff">
+<span class="sig-name descname"><span class="pre">isolated_body_matrices_diff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floatcyl.isolated_body.isolated_body.Cylinder.isolated_body_matrices_diff" title="Link to this definition"></a></dt>
+<dd><p>Compute the isolated body diffraction matrices E, G and vector u.
+See Eq. (3.85) - (3.87) in Child 2011.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> (<em>int</em>) – theta-mode</p></li>
+<li><p><strong>m</strong> (<em>int</em>) – z-mode (0 for incident progressive waves, &gt;0 for incident evanescent waves)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>E</strong> (<em>array of shape (Nq x Nq)</em>)</p></li>
+<li><p><strong>u</strong> (<em>array of shape (Nq x 1)</em>)</p></li>
+<li><p><strong>G</strong> (<em>array of shape (Nq x Nq)</em>)</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floatcyl.isolated_body.isolated_body.Cylinder.isolated_body_matrices_rad">
+<span class="sig-name descname"><span class="pre">isolated_body_matrices_rad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">g</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">9.81</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floatcyl.isolated_body.isolated_body.Cylinder.isolated_body_matrices_rad" title="Link to this definition"></a></dt>
+<dd><p>Compute the isolated body radiation problem vectors q, s.
+See Eq. (3.108), (3.109) in Child 2011.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>g</strong> (<em>float</em>) – gravitational field (default: 9.81)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>q</strong> (<em>array of shape (Nq x 1)</em>)</p></li>
+<li><p><strong>s</strong> (<em>array of shape (Nq x 1)</em>)</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floatcyl.isolated_body.isolated_body.Cylinder.radiated_wave_coeffs">
+<span class="sig-name descname"><span class="pre">radiated_wave_coeffs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">D</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floatcyl.isolated_body.isolated_body.Cylinder.radiated_wave_coeffs" title="Link to this definition"></a></dt>
+<dd><p>Computes the coefficients R of radiated wave coefficients
+for the external problem (useful for potential/free surface recovery).
+See Eq. (3.128) in Child 2011.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>D</strong> (<em>array</em>) – single-body radiation results</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>R</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array of shape ((2Nl + 1)(Nm + 1) x 1)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floatcyl.isolated_body.isolated_body.Cylinder.radiated_wave_coeffs_internal">
+<span class="sig-name descname"><span class="pre">radiated_wave_coeffs_internal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">C</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floatcyl.isolated_body.isolated_body.Cylinder.radiated_wave_coeffs_internal" title="Link to this definition"></a></dt>
+<dd><p>Computes the coefficients Rtilde of radiated wave coefficients
+for the internal problem (useful for force computation).
+See Eq. (3.129) in Child 2011.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>C</strong> (<em>array</em>) – single-body radiation results</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>R</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array of shape ((2Nl + 1)(Nm + 1) x 1)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="array-interaction">
+<h2>Array interaction<a class="headerlink" href="#array-interaction" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="floatcyl.array_interaction.array_interaction.Array">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">floatcyl.array_interaction.array_interaction.</span></span><span class="sig-name descname"><span class="pre">Array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0.4]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Nn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Nq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">omega</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">water_density</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">9.81</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">denseops</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floatcyl.array_interaction.array_interaction.Array" title="Link to this definition"></a></dt>
+<dd><p>Constructor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>beta</strong> (<em>float</em>) – incoming wave direction</p></li>
+<li><p><strong>depth</strong> (<em>float</em>) – sea depth (default: 30.)</p></li>
+<li><p><strong>k</strong> (<em>float</em>) – real wavenumber (default: 0.01)</p></li>
+<li><p><strong>kq</strong> (<em>list</em><em> or </em><em>array</em><em> of </em><em>floats</em>) – imaginary wavenumbers (default: [0.4])</p></li>
+<li><p><strong>Nn</strong> (<em>int</em>) – number of progressive (real) modes (default: 5)</p></li>
+<li><p><strong>Nq</strong> (<em>int</em>) – number of evanescent (imaginary) modes (default: 10)</p></li>
+<li><p><strong>omega</strong> (<em>float</em>) – radial frequency of the waves (default: 3)</p></li>
+<li><p><strong>water_density</strong> (<em>float</em>) – water density (default: 1000)</p></li>
+<li><p><strong>g</strong> (<em>float</em>) – gravitational field (default: 9.81)</p></li>
+<li><p><strong>H</strong> (<em>float</em>) – monochromatic wave height</p></li>
+<li><p><strong>denseops</strong> (<em>boolean</em>) – whether to use dense matrices and direct solvers
+(default: False, will use sparse matrices and GMRES)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="floatcyl.array_interaction.array_interaction.Array.L_derivatives">
+<span class="sig-name descname"><span class="pre">L_derivatives</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#floatcyl.array_interaction.array_interaction.Array.L_derivatives" title="Link to this definition"></a></dt>
+<dd><p>Computes the derivatives of the distance and angle between pairs
+of bodies with respect to their coordinates.
+See Eq. (4.23)-(4.27) in Gallizioli 2022.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floatcyl.array_interaction.array_interaction.Array.M_derivatives">
+<span class="sig-name descname"><span class="pre">M_derivatives</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#floatcyl.array_interaction.array_interaction.Array.M_derivatives" title="Link to this definition"></a></dt>
+<dd><p>Computes the derivatives of the matrix blocks of the primal
+system (needed to assemble the gradient) with respect to the
+positions of the bodies.
+See Eq. (4.16)-(4.20) of Gallizioli 2022</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floatcyl.array_interaction.array_interaction.Array.M_derivatives_damp">
+<span class="sig-name descname"><span class="pre">M_derivatives_damp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#floatcyl.array_interaction.array_interaction.Array.M_derivatives_damp" title="Link to this definition"></a></dt>
+<dd><p>Computes the derivatives of the system matrices with respect to
+the damping coefficient.
+See Eq. (4.36)-(4.37) in Gallizioli 2022</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floatcyl.array_interaction.array_interaction.Array.T_derivatives">
+<span class="sig-name descname"><span class="pre">T_derivatives</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">symm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floatcyl.array_interaction.array_interaction.Array.T_derivatives" title="Link to this definition"></a></dt>
+<dd><p>Computes the derivatives of the basis transformation matrices
+with respect to the coordinates of bodies.
+See Eq. (4.20) in Gallizioli 2022</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>symm</strong> (<em>boolean</em>) – Whether or not to leverage symmetries to save computations
+(default: True)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floatcyl.array_interaction.array_interaction.Array.add_body">
+<span class="sig-name descname"><span class="pre">add_body</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xbody</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ybody</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">body</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floatcyl.array_interaction.array_interaction.Array.add_body" title="Link to this definition"></a></dt>
+<dd><p>Adds single body to the array.
+When a body is added, it inherits all the properties
+that are common to the whole array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xbody</strong> (<em>float</em>) – x coordinate of body center</p></li>
+<li><p><strong>ybody</strong> (<em>float</em>) – y coordinate of body center</p></li>
+<li><p><strong>body</strong> (<em>body object</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floatcyl.array_interaction.array_interaction.Array.adjoint_equations">
+<span class="sig-name descname"><span class="pre">adjoint_equations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">OWC</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">returnMH</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rhs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floatcyl.array_interaction.array_interaction.Array.adjoint_equations" title="Link to this definition"></a></dt>
+<dd><p>Solves the adjoint equations.
+See (4.14) of Gallizioli 2022.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>OWC</strong> (<em>boolean</em>) – Whether to use the formulation of the RHS for oscillating water
+columns with immersed turbine (default: False)</p></li>
+<li><p><strong>constr</strong> (<em>string</em>) – Type of constraint to be imposed. Options: ‘stroke’, ‘slamming’.
+If mu&gt;0, defaults to stroke. Otherwise, None.</p></li>
+<li><p><strong>mu</strong> (<em>float</em>) – Penalty parameter for constraint enforcement (default: 0,
+no additional constraints)</p></li>
+<li><p><strong>zmax</strong> (<em>float</em>) – Maximum stroke amplitude for enforcement through the penalty
+method (only effective if mu&gt;0)</p></li>
+<li><p><strong>type</strong> (<em>integer</em>) – Type of penalty method: 1 for nonsmooth, 2 for quadratic
+(default = 2)</p></li>
+<li><p><strong>returnMH</strong> (<em>boolean</em>) – Whether to return the matrix (if denseops==True) or the
+linear operator (if denseops==False) MH. (default: False)</p></li>
+<li><p><strong>rhs</strong> (<em>array</em>) – If not None, it is used as-is as the rhs of the equation
+(default: None)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floatcyl.array_interaction.array_interaction.Array.basis_transformation_matrices">
+<span class="sig-name descname"><span class="pre">basis_transformation_matrices</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#floatcyl.array_interaction.array_interaction.Array.basis_transformation_matrices" title="Link to this definition"></a></dt>
+<dd><p>Computes all basis transformation matrices fast.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floatcyl.array_interaction.array_interaction.Array.basis_transformation_matrix">
+<span class="sig-name descname"><span class="pre">basis_transformation_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ii</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shutup</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floatcyl.array_interaction.array_interaction.Array.basis_transformation_matrix" title="Link to this definition"></a></dt>
+<dd><p>Computes the transformation matrix T_ij from the incident wave
+basis of body i to the scattered wave basis of body j.
+See Eq. (3.119) in Child 2011.
+:param ii: Index of receiving body
+:type ii: integer
+:param jj: Index of emitting body
+:type jj: integer
+:param shutup: Whether or not to print an output to screen
+:type shutup: boolean</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Tij</strong></p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>array of shape ((2Nn + 1)(Nm + 1) x (2Nn + 1)(Nm + 1))</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floatcyl.array_interaction.array_interaction.Array.compute_free_surface">
+<span class="sig-name descname"><span class="pre">compute_free_surface</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floatcyl.array_interaction.array_interaction.Array.compute_free_surface" title="Link to this definition"></a></dt>
+<dd><p>Computes the free surface complex elevation for the fully
+coupled problem (incident+diffracted+radiated waves)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>floats</em>) – grid coordinates in x, y</p></li>
+<li><p><strong>y</strong> (<em>floats</em>) – grid coordinates in x, y</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>eta</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>complex array of shape (shape(y), shape(x))</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floatcyl.array_interaction.array_interaction.Array.compute_power">
+<span class="sig-name descname"><span class="pre">compute_power</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">individual</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OWC</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floatcyl.array_interaction.array_interaction.Array.compute_power" title="Link to this definition"></a></dt>
+<dd><p>Computes the power of the array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>individual</strong> (<em>boolean</em>) – Whether to return a list of the powers of the single devices
+(true) or just the total power (false)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>P</strong> – Power</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float (if individual=False) or array (if individual=True)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floatcyl.array_interaction.array_interaction.Array.expose_operators">
+<span class="sig-name descname"><span class="pre">expose_operators</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">returnblocks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floatcyl.array_interaction.array_interaction.Array.expose_operators" title="Link to this definition"></a></dt>
+<dd><p>Exposes the system operator, its hermitian and the rhs of
+the system. Sparse matrices + linear operators are used.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>returnblocks</strong> (<em>boolean</em>) – Whether to return also the single blocks of matrix M
+(default: False)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>(M, MH, hh) and optionally the list of blocks of M,</em></p></li>
+<li><p><em>ordered (M11, M12, M21, M22)</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floatcyl.array_interaction.array_interaction.Array.gradientJ">
+<span class="sig-name descname"><span class="pre">gradientJ</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#floatcyl.array_interaction.array_interaction.Array.gradientJ" title="Link to this definition"></a></dt>
+<dd><p>Computes the derivatives of the Lagrangian with respect to
+the positions of the bodies.
+See Eq. (4.15) of Gallizioli 2022</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floatcyl.array_interaction.array_interaction.Array.gradientJ_dampstiff">
+<span class="sig-name descname"><span class="pre">gradientJ_dampstiff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">returnJimp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floatcyl.array_interaction.array_interaction.Array.gradientJ_dampstiff" title="Link to this definition"></a></dt>
+<dd><p>Computes the gradient of the Lagrangian with respect to the
+damping and stiffness coefficients.
+See Eq. (4.35), (4.38) of Gallizioli 2022.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>returnJimp</strong> (<em>boolean</em>) – Whether to return the intermediate result of jac_imped
+(default: False)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floatcyl.array_interaction.array_interaction.Array.h_derivatives">
+<span class="sig-name descname"><span class="pre">h_derivatives</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#floatcyl.array_interaction.array_interaction.Array.h_derivatives" title="Link to this definition"></a></dt>
+<dd><p>Computes the derivatives of the rhs blocks of the primal system
+(needed to assemble the gradient) with respect to the
+positions of the bodies.
+Amended on 20/04/23 (TODO: document!)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floatcyl.array_interaction.array_interaction.Array.incident_basis_fs">
+<span class="sig-name descname"><span class="pre">incident_basis_fs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xeval</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yeval</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floatcyl.array_interaction.array_interaction.Array.incident_basis_fs" title="Link to this definition"></a></dt>
+<dd><p>Computes the incident wave basis function of order (n,m) at the free surface.
+See Eq. (3.111) in Child 2011.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> (<em>int</em>) – theta-mode</p></li>
+<li><p><strong>m</strong> (<em>int</em>) – z-mode (0 for incident progressive waves, &gt;0 for incident evanescent waves)</p></li>
+<li><p><strong>k</strong> (<em>float</em>) – relevant wavenumber for the requested order (real root of the dispersion
+equation for m=0, m-th imaginary root of the dispersion equation for m&gt;=1)
+depth: water depth</p></li>
+<li><p><strong>a</strong> (<em>float</em>) – cylinder radius</p></li>
+<li><p><strong>xc</strong> (<em>floats</em>) – center coordinates of the scattering body in the global reference</p></li>
+<li><p><strong>yc</strong> (<em>floats</em>) – center coordinates of the scattering body in the global reference</p></li>
+<li><p><strong>xeval</strong> (<em>(</em><em>Npx1</em><em>) </em><em>arrays</em><em> of </em><em>floats</em>) – coordinates of points where the basis function
+needs to be evaluated, in the global reference</p></li>
+<li><p><strong>yeval</strong> (<em>(</em><em>Npx1</em><em>) </em><em>arrays</em><em> of </em><em>floats</em>) – coordinates of points where the basis function
+needs to be evaluated, in the global reference</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>psi</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array of shape (Np x 1)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floatcyl.array_interaction.array_interaction.Array.incident_wave_coeffs">
+<span class="sig-name descname"><span class="pre">incident_wave_coeffs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Nn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Nm</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floatcyl.array_interaction.array_interaction.Array.incident_wave_coeffs" title="Link to this definition"></a></dt>
+<dd><p>Computes the incident wave coefficients for a body.
+See Eq. (3.114) in Child 2011.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>k</strong> (<em>float</em>) – progressive wavenumber (real root of the dispersion equation) (rad/s)</p></li>
+<li><p><strong>beta</strong> (<em>float</em>) – direction of incoming waves (rad)</p></li>
+<li><p><strong>a</strong> (<em>float</em>) – radius of the cylinder</p></li>
+<li><p><strong>x</strong> (<em>floats</em>) – coordinates of the center of the cylinder</p></li>
+<li><p><strong>y</strong> (<em>floats</em>) – coordinates of the center of the cylinder</p></li>
+<li><p><strong>Nn</strong> (<em>int</em>) – number of angular/radial modes</p></li>
+<li><p><strong>Nm</strong> (<em>int</em>) – number of evanescent modes</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>coeffs</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array of shape ((2Nn + 1)(Nm + 1) x 1)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floatcyl.array_interaction.array_interaction.Array.jac_imped">
+<span class="sig-name descname"><span class="pre">jac_imped</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#floatcyl.array_interaction.array_interaction.Array.jac_imped" title="Link to this definition"></a></dt>
+<dd><p>Computes the jacobian of the residual of the dynamic equation with respect
+to the impedance. Used to build the reduced gradient with respect
+to the control parameters with sparse operations.
+Added on 01/09/2023. TODO: document.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floatcyl.array_interaction.array_interaction.Array.jac_positions">
+<span class="sig-name descname"><span class="pre">jac_positions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#floatcyl.array_interaction.array_interaction.Array.jac_positions" title="Link to this definition"></a></dt>
+<dd><p>Computes the Jacobian of the residual Mz-h with respect to
+the positions. Uses sparse operations.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floatcyl.array_interaction.array_interaction.Array.scattered_basis_fs">
+<span class="sig-name descname"><span class="pre">scattered_basis_fs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xeval</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yeval</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floatcyl.array_interaction.array_interaction.Array.scattered_basis_fs" title="Link to this definition"></a></dt>
+<dd><p>Computes the scattered wave basis function of order (n,m) at the free surface.
+See Eq. (3.110) in Child 2011.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> (<em>int</em>) – theta-mode</p></li>
+<li><p><strong>m</strong> (<em>int</em>) – z-mode (0 for incident progressive waves, &gt;0 for incident evanescent waves)</p></li>
+<li><p><strong>k</strong> (<em>float</em>) – relevant wavenumber for the requested order (real root of the dispersion
+equation for m=0, m-th imaginary root of the dispersion equation for m&gt;=1)
+depth: water depth</p></li>
+<li><p><strong>a</strong> (<em>float</em>) – cylinder radius</p></li>
+<li><p><strong>xc</strong> (<em>floats</em>) – center coordinates of the scattering body in the global reference</p></li>
+<li><p><strong>yc</strong> (<em>floats</em>) – center coordinates of the scattering body in the global reference</p></li>
+<li><p><strong>xeval</strong> (<em>ints</em>) – (Npx1) arrays of coordinates of points where the basis function
+needs to be evaluated, in the global reference</p></li>
+<li><p><strong>yeval</strong> (<em>ints</em>) – (Npx1) arrays of coordinates of points where the basis function
+needs to be evaluated, in the global reference</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>psi</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array of shape (Np x 1)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floatcyl.array_interaction.array_interaction.Array.solve">
+<span class="sig-name descname"><span class="pre">solve</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#floatcyl.array_interaction.array_interaction.Array.solve" title="Link to this definition"></a></dt>
+<dd><p>Assembles and solves the full array system.
+See Eq. (4.11) - (4.15) in Child 2011.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floatcyl.array_interaction.array_interaction.Array.update_controls">
+<span class="sig-name descname"><span class="pre">update_controls</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">damping</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stiffness</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floatcyl.array_interaction.array_interaction.Array.update_controls" title="Link to this definition"></a></dt>
+<dd><p>Updates the values of vector self.W with specified damping and
+stiffness vectors</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>damping</strong> (<em>float array</em><em> of </em><em>size Nbodies</em>) – Damping coefficients</p></li>
+<li><p><strong>stiffness</strong> (<em>float array</em><em> of </em><em>size Nbodies</em>) – Stiffness coefficients</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-floatcyl.utils.utils">
+<span id="utils"></span><h2>Utils<a class="headerlink" href="#module-floatcyl.utils.utils" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="floatcyl.utils.utils.discrete_PM_spectrum">
+<span class="sig-prename descclassname"><span class="pre">floatcyl.utils.utils.</span></span><span class="sig-name descname"><span class="pre">discrete_PM_spectrum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Te</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Hs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Nbins</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thres</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'E'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floatcyl.utils.utils.discrete_PM_spectrum" title="Link to this definition"></a></dt>
+<dd><p>Builds a discretization of a Pierson-Moskowitz spectrum with
+specified parameters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Te</strong> (<em>float</em>) – Energy period (s)</p></li>
+<li><p><strong>Hs</strong> (<em>float</em>) – Significant wave height (m)</p></li>
+<li><p><strong>Nbins</strong> (<em>integer</em>) – Number of bins (discrete frequencies)</p></li>
+<li><p><strong>filename</strong> (<em>string</em><em> or </em><em>None</em>) – If None, no output file generated; otherwise output file name
+(default: None)</p></li>
+<li><p><strong>thres</strong> (<em>float</em>) – Threshold for truncation of the spectrum in terms neglected power
+(default: 0.001)</p></li>
+<li><p><strong>plot</strong> (<em>boolean</em>) – Whether to plot the spectrum and its discretization (default: False)</p></li>
+<li><p><strong>crit</strong> (<em>string</em>) – Whether to use frequency bins of equal width (F), equal
+energy density (E) (default), or equal energy flux (J)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>omega</strong> (<em>array</em>) – Angular frequencies of components of discretized spectrum (rad/s)</p></li>
+<li><p><strong>amplitude</strong> (<em>array</em>) – Amplitudes of components of discretized spectrum (m)</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="floatcyl.utils.utils.inverse_vector_indices">
+<span class="sig-prename descclassname"><span class="pre">floatcyl.utils.utils.</span></span><span class="sig-name descname"><span class="pre">inverse_vector_indices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ii</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Nn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Nm</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floatcyl.utils.utils.inverse_vector_indices" title="Link to this definition"></a></dt>
+<dd><p>Computes the transformation from the single index
+of interaction vectors and matrices to indices (m,n)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="floatcyl.utils.utils.vector_index">
+<span class="sig-prename descclassname"><span class="pre">floatcyl.utils.utils.</span></span><span class="sig-name descname"><span class="pre">vector_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Nn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Nm</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floatcyl.utils.utils.vector_index" title="Link to this definition"></a></dt>
+<dd><p>Computes the transformation from indices (m,n) to the single index
+of interaction vectors and matrices</p>
+</dd></dl>
+
+</section>
+<section id="module-floatcyl.gradflow.inoutpolygonmesh">
+<span id="gradient-flow"></span><h2>Gradient flow<a class="headerlink" href="#module-floatcyl.gradflow.inoutpolygonmesh" title="Link to this heading"></a></h2>
+<dl class="py function" id="module-floatcyl.gradflow.random_pos">
+<dt class="sig sig-object py" id="floatcyl.gradflow.random_pos.random_in_square">
+<span class="sig-prename descclassname"><span class="pre">floatcyl.gradflow.random_pos.</span></span><span class="sig-name descname"><span class="pre">random_in_square</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xR</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yU</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">N</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floatcyl.gradflow.random_pos.random_in_square" title="Link to this definition"></a></dt>
+<dd><p>Puts N circles of radius r in a square of edge L, without overlaps
+kwarg: maxit (maximum number of total inner iterations)</p>
+<p>Returns positions x, y and status 0 for not converged, 1 for converged</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="floatcyl.gradflow.random_pos.random_in_triangle">
+<span class="sig-prename descclassname"><span class="pre">floatcyl.gradflow.random_pos.</span></span><span class="sig-name descname"><span class="pre">random_in_triangle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">N</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floatcyl.gradflow.random_pos.random_in_triangle" title="Link to this definition"></a></dt>
+<dd><p>Puts N circles of radius r in a triangle with specified vertices,
+without overlaps. Uses a reflection algorithm: see
+<a class="reference external" href="https://blogs.sas.com/content/iml/2020/10/19/random-points-in-triangle.html">https://blogs.sas.com/content/iml/2020/10/19/random-points-in-triangle.html</a>
+vertices must be an array of shape (3, 2)
+kwarg: maxit (maximum number of total inner iterations)</p>
+<p>Returns positions x, y</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="floatcyl.gradflow.random_pos.random_in_trunc_triangle">
+<span class="sig-prename descclassname"><span class="pre">floatcyl.gradflow.random_pos.</span></span><span class="sig-name descname"><span class="pre">random_in_trunc_triangle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">N</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subd_check</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floatcyl.gradflow.random_pos.random_in_trunc_triangle" title="Link to this definition"></a></dt>
+<dd><p>Puts N circles of radius r in the intersection between a triangle
+with specified vertices and a generic domain, without overlaps.</p>
+<dl class="simple">
+<dt>r: float</dt><dd><p>minimum distance between points (radius)</p>
+</dd>
+<dt>vertices: array of shape (3, 2)</dt><dd><p>triangle vertices</p>
+</dd>
+<dt>N: integer</dt><dd><p>number of points to be positioned</p>
+</dd>
+<dt>subd_check: function</dt><dd><p>returns True if a point is inside the subdomain, False otherwise</p>
+</dd>
+<dt>sf: float (default = 1.2)</dt><dd><p>initial safety factor based on the area ratio between the area of the
+triangle and the subdomain</p>
+</dd>
+<dt>maxit: integer (default = 10)</dt><dd><p>maximum number of iterations</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="floatcyl.gradflow.random_pos.ref_to_physical">
+<span class="sig-prename descclassname"><span class="pre">floatcyl.gradflow.random_pos.</span></span><span class="sig-name descname"><span class="pre">ref_to_physical</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_ref</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_ref</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertices</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floatcyl.gradflow.random_pos.ref_to_physical" title="Link to this definition"></a></dt>
+<dd><p>Conversion from reference triangle to physical triangle</p>
+</dd></dl>
+
+<dl class="py function" id="module-floatcyl.gradflow.rkflow">
+<span id="module-floatcyl.gradflow.flowmap"></span><dt class="sig sig-object py" id="floatcyl.gradflow.rkflow.eeheun">
+<span class="sig-prename descclassname"><span class="pre">floatcyl.gradflow.rkflow.</span></span><span class="sig-name descname"><span class="pre">eeheun</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flowmap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop_tol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Tmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt_0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-06</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rtol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adapt_tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">monitor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floatcyl.gradflow.rkflow.eeheun" title="Link to this definition"></a></dt>
+<dd><p>Explicit Euler/Heun adaptive time stepping</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>w0</strong> (<em>array</em>) – Initial guess</p></li>
+<li><p><strong>flowmap</strong> (<em>Flowmap object</em>) – An object with methods compute_f_g and compute_phi</p></li>
+<li><p><strong>stop_tol</strong> (<em>float</em>) – Stopping criterion (norm of phi)</p></li>
+<li><p><strong>Tmax</strong> (<em>float</em>) – Maximum final time (default: 1000)</p></li>
+<li><p><strong>dt_0</strong> (<em>float</em>) – Tentative time step (default: 1.9)</p></li>
+<li><p><strong>order</strong> (<em>integer</em>) – Order of the method (= number of evaluations per time step)
+Either 1 (Euler update) or 2 (Heun update) (default: 1)</p></li>
+<li><p><strong>atol</strong> (<em>float</em>) – Absolute tolerance for stepsize selection (default: 1e-6)</p></li>
+<li><p><strong>rtol</strong> (<em>float</em>) – Relative tolerance for stepsize selection (default: 1e-3)</p></li>
+<li><p><strong>adapt_tol</strong> (<em>boolean</em>) – Whether to adapt the stepsize selection tolerance to the
+stopping criterion (default: True). If True, values
+of atol and rtol will be ignored.</p></li>
+<li><p><strong>monitor</strong> (<em>boolean</em>) – Whether to save performance monitoring data (default: False)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>tvec</strong> (<em>list of floats</em>) – Vector of times</p></li>
+<li><p><strong>Wvec</strong> (<em>list of complex arrays</em>) – Vector of control variable arrays along the time steps</p></li>
+<li><p><strong>fhist</strong> (<em>list of floats</em>) – Vector of costs</p></li>
+<li><p><strong>ghist</strong> (<em>list of floats</em>) – Vector containing the 2-norms of the constraint function</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="floatcyl.gradflow.rkflow.euler">
+<span class="sig-prename descclassname"><span class="pre">floatcyl.gradflow.rkflow.</span></span><span class="sig-name descname"><span class="pre">euler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flowmap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop_tol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Tmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt_0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">monitor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#floatcyl.gradflow.rkflow.euler" title="Link to this definition"></a></dt>
+<dd><p>Explicit Euler</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>w0</strong> (<em>array</em>) – Initial guess</p></li>
+<li><p><strong>flowmap</strong> (<em>Flowmap object</em>) – An object with methods compute_f_g and compute_phi</p></li>
+<li><p><strong>stop_tol</strong> (<em>float</em>) – Stopping criterion (norm of phi)</p></li>
+<li><p><strong>Tmax</strong> (<em>float</em>) – Maximum final time (default: 1000)</p></li>
+<li><p><strong>dt_0</strong> (<em>float</em>) – Tentative time step (default: 1.9)</p></li>
+<li><p><strong>monitor</strong> (<em>boolean</em>) – Whether to save performance monitoring data (default: False)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="floatcyl" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="user.html" class="btn btn-neutral float-right" title="User guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021-2024, Marco Gambarini.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

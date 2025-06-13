@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Theory guide &mdash; floatcyl 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=2709fde1"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="User guide" href="user.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            floatcyl
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Code documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user.html">User guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Theory guide</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">floatcyl</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Theory guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/theory.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="theory-guide">
+<h1>Theory guide<a class="headerlink" href="#theory-guide" title="Link to this heading"></a></h1>
+<p>The full theory can be found in Child’s thesis (2011) and Yilmaz’s paper (1998);
+see the readme for references. In particular, there are direct references to the
+former in the code documentation. Here, I will only show the big picture.</p>
+<p>The aim is to solve the problem of computing forces on floating
+bodies in wave fields, and their oscillation amplitude. The strategy
+is to identify the way single bodies respond to incoming waves, in terms
+of the forces they are subjected to and of the waves they re-emit
+(diffraction and radiation). A considerable amount of time can be saved
+with respect to other linear analysis methods, such as the BEM, if many
+bodies are identical: their isolated behaviours will be the same, and will
+only need to be computed once. The elevation of the free surface can
+then be recovered as a post-processing stage.</p>
+<p>The flow field is described by the Laplace equation. Since we are dealing
+with cylinders, the equation is solved in cylindrical coordinates by
+separation of variables. The boundary conditions imply that the vertical
+dependence is in terms of hyperbolic functions, the azimuthal in terms of
+harmonic functions, and the radial in terms of Bessel functions.
+The solution can thus be expressed as a series. Each body will then
+have a basis of incoming waves and a basis of outgoing waves.
+It is important to choose how many
+terms of the series to use: this should be done by analyzing convergence.
+The parameters are the number of progressive modes (corresponding to
+real solutions of the dispersion equation) and evanescent modes (corresponding
+to imaginary solutions of the dispersion equation). Evanescent modes
+become important when the bodies are close enough to each other.</p>
+<p>First, we identify the way a fixed body responds to incident waves.
+This is diffraction. The result is a matrix that connects the coefficients
+of the incident wave expansion to the ones of the diffracted waves expansion.</p>
+<p>Then, we study what waves are generated when a body oscillates with unit
+amplitude. This is radiation. The result is a vector of coefficients for
+outgoing waves.</p>
+<p>Now, each body is subject to the incident wave field and to the diffracted
+and radiated fields of all bodies. The problem is closed with a dynamic
+equation that determines the oscillation amplitude of each body from the
+forces caused by incident waves (Froude-Krylov force), diffracted waves
+and radiated waves. If the body is connected to the bottom by a
+viscoelastic element, this is where it has to be included.</p>
+<p>At the moment, only heave (vertical) motions are implemented, as in
+Child’s thesis.
+Surge and pitch could be added, following Yilmaz’s article.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="user.html" class="btn btn-neutral float-left" title="User guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021-2024, Marco Gambarini.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>floatcyl &mdash; floatcyl 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=2709fde1"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Code documentation" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            floatcyl
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Code documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user.html">User guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="theory.html">Theory guide</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">floatcyl</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">floatcyl</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="floatcyl">
+<h1>floatcyl<a class="headerlink" href="#floatcyl" title="Link to this heading"></a></h1>
+<p>Implementation of wave interaction theory for floating cylinders and of gradient flow optimization tools.</p>
+<p>The code is based on the works</p>
+<p>[1] O. Yilmaz, <em>Hydrodynamic interactions of waves with group of truncated vertical cylinders</em>, Journal of waterway, port, coastal, and ocean engineering, 1998</p>
+<p>[2] B. F. M. Child, <em>On the configuration of arrays of floating wave energy converters</em>, PhD Thesis, University of Edinburgh, 2011</p>
+<p>[3] J. Gallizioli, <em>Optimization of WEC arrays: A new approach for the combined optimization of positions and damping coefficients</em>, MSc Thesis, Politecnico di Milano, 2022</p>
+<p>[4] M. Gambarini, G. Ciaramella, E. Miglio, <em>A gradient flow approach for combined layout-control design of wave energy parks</em>, preprint, 2024, <a class="reference external" href="https://arxiv.org/abs/2409.10200">https://arxiv.org/abs/2409.10200</a></p>
+<p>To install, enter the directory and use the command
+<code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code>
+This is installation for developers: if you update the code, you will immediately use the updated version when you load the module in Python.</p>
+<p>To see the documentation, enter folder docs and run
+<code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code>.
+A file index.html will appear in docs/build.</p>
+<p>Importing floatcyl automatically imports the hydrodynamic solver, together with the functions for computing gradients, but not the gradient flow submodule.
+The latter can be imported as <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">floatcyl.gradflow</span></code> and it requires the installation of Firedrake and gmsh.
+It is recommended to install Firedrake inside a virtual environment, as indicated in https://www.firedrakeproject.org/download.html.
+Before installing floatcyl and everytime the gradflow tools of floatcyl are used, activate the Firedrake virtual environment.</p>
+<p>The examples in the gradflow folder allow reproducing the results of [4].</p>
+</section>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Code documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#module-floatcyl.disp_relation.disp_relation">Dispersion relation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#isolated-body">Isolated body</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#array-interaction">Array interaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#module-floatcyl.utils.utils">Utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#module-floatcyl.gradflow.inoutpolygonmesh">Gradient flow</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="user.html">User guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="theory.html">Theory guide</a></li>
+</ul>
+</div>
+<section id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Link to this heading"></a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-right" title="Code documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021-2024, Marco Gambarini.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
